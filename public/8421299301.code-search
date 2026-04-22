@@ -1,0 +1,24 @@
+# Query: 8421299301
+# ContextLines: 1
+
+4 results - 4 files
+
+src\App.jsx:
+  66          <div 
+  67:           onClick={() => window.open("https://wa.me/918421299301", "_blank")} 
+  68            className="fixed bottom-6 left-6 z-50 flex items-center gap-2 cursor-pointer group"
+
+src\booking.jsx:
+  11    const handleWhatsApp = () => {
+  12:     const phoneNumber = "9184212"; 
+  13      const message = `*New Booking Enquiry*%0A*Name:* ${formData.name}%0A*Service:* ${formData.service}%0A*Message:* ${formData.message}`;
+
+src\service detail.jsx:
+  32              <button 
+  33:               onClick={() => window.open(`https://wa.me/918421299301?text=I want to book ${service.title}`, "_blank")}
+  34                className="w-full bg-[#db2777] text-white py-4 rounded-2xl font-bold hover:bg-[#be185d] transition shadow-lg"
+
+src\theme.jsx:
+  11    const handleWhatsApp = () => {
+  12:     const phoneNumber = "918421299301"; 
+  13      const message = `*New Booking Enquiry*%0A*Name:* ${formData.name}%0A*Service:* ${formData.service}%0A*Message:* ${formData.message}`;
