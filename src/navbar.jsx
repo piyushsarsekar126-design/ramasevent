@@ -41,7 +41,7 @@ const Navbar = () => {
           
           {/* About Us Link */}
           <li>
-            <Link to="/about" className="cursor-pointer hover:text-[#db2777] transition">About Us</Link>
+            <Link to="/about-us" className="cursor-pointer hover:text-[#db2777] transition">About Us</Link>
           </li>
 
           {/* Services - NEW PAGE ON CLICK + DROPDOWN ON HOVER */}
@@ -63,11 +63,11 @@ const Navbar = () => {
               <div className="absolute top-full left-1/2 -translate-x-1/2 w-64 pt-4 z-[999]">
                 <div className="bg-white shadow-[0_20px_50px_rgba(0,0,0,0.2)] rounded-3xl p-5 border border-gray-100">
                   <div className="flex flex-col gap-2">
-                    <Link to="/service/wedding" onClick={() => setIsDropdownOpen(false)} className="text-left py-2 px-3 hover:bg-pink-50 rounded-xl hover:text-[#db2777] font-bold text-[10px] tracking-wider transition">WEDDING PLANNING</Link>
-                    <Link to="/service/birthday" onClick={() => setIsDropdownOpen(false)} className="text-left py-2 px-3 hover:bg-pink-50 rounded-xl hover:text-[#db2777] font-bold text-[10px] tracking-wider transition">BIRTHDAY PARTIES</Link>
-                    <Link to="/service/corporate" onClick={() => setIsDropdownOpen(false)} className="text-left py-2 px-3 hover:bg-pink-50 rounded-xl hover:text-[#db2777] font-bold text-[10px] tracking-wider transition">CORPORATE EVENTS</Link>
-                    <Link to="/service/private" onClick={() => setIsDropdownOpen(false)} className="text-left py-2 px-3 hover:bg-pink-50 rounded-xl hover:text-[#db2777] font-bold text-[10px] tracking-wider transition">PRIVATE EVENTS</Link>
-                    <Link to="/service/family" onClick={() => setIsDropdownOpen(false)} className="text-left py-2 px-3 hover:bg-pink-50 rounded-xl hover:text-[#db2777] font-bold text-[10px] tracking-wider transition">FAMILY CELEBRATIONS</Link>
+                    <Link to="/wedding-planner-pune" onClick={() => setIsDropdownOpen(false)} className="text-left py-2 px-3 hover:bg-pink-50 rounded-xl hover:text-[#db2777] font-bold text-[10px] tracking-wider transition">WEDDING PLANNING</Link>
+                    <Link to="/birthday-party-decoration-pune" onClick={() => setIsDropdownOpen(false)} className="text-left py-2 px-3 hover:bg-pink-50 rounded-xl hover:text-[#db2777] font-bold text-[10px] tracking-wider transition">BIRTHDAY PARTIES</Link>
+                    <Link to="/haldi-mehendi-decoration-pune" onClick={() => setIsDropdownOpen(false)} className="text-left py-2 px-3 hover:bg-pink-50 rounded-xl hover:text-[#db2777] font-bold text-[10px] tracking-wider transition">HALDI & MEHENDI</Link>
+                    <Link to="/baby-shower-decoration-pune" onClick={() => setIsDropdownOpen(false)} className="text-left py-2 px-3 hover:bg-pink-50 rounded-xl hover:text-[#db2777] font-bold text-[10px] tracking-wider transition">BABY SHOWER</Link>
+                    <Link to="/anniversary-decoration-pune" onClick={() => setIsDropdownOpen(false)} className="text-left py-2 px-3 hover:bg-pink-50 rounded-xl hover:text-[#db2777] font-bold text-[10px] tracking-wider transition">ANNIVERSARY DECOR</Link>
                   </div>
                 </div>
               </div>
@@ -75,7 +75,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <Link to="/contact" className="cursor-pointer hover:text-[#db2777] transition">Contact Us</Link>
+            <Link to="/contact-us" className="cursor-pointer hover:text-[#db2777] transition">Contact Us</Link>
           </li>
         </ul>
       </div>

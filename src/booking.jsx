@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaWhatsapp, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Booking = () => {
+  useEffect(() => {
+    document.title = "Book Now | Rama's Events - Event Planning Enquiry Pune";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', "Book your next event with Rama's Events in Pune. Fill out our enquiry form or contact us via WhatsApp for weddings, birthdays, and corporate events.");
+    }
+    window.scrollTo(0, 0);
+  }, []);
   const [formData, setFormData] = useState({
     name: '',
     service: 'Wedding Planning',
@@ -35,8 +43,9 @@ const Booking = () => {
         
         {/* Left Side: Form Section */}
         <div className="md:w-3/5 p-10 md:p-16">
-          <h2 className="text-[#be185d] font-bold mb-2 uppercase tracking-widest text-[10px]">Full Name</h2>
+          <label htmlFor="user-name" className="text-[#be185d] font-bold mb-2 uppercase tracking-widest text-[10px] block">Full Name</label>
           <input 
+            id="user-name"
             type="text" 
             placeholder="Enter your name" 
             value={formData.name}
@@ -44,9 +53,10 @@ const Booking = () => {
             className="w-full p-4 bg-gray-50 rounded-2xl mb-6 outline-none border border-transparent focus:border-[#f472b6] transition" 
           />
           
-          <h2 className="text-[#be185d] font-bold mb-2 uppercase tracking-widest text-[10px]">Select Service</h2>
+          <label htmlFor="service-select" className="text-[#be185d] font-bold mb-2 uppercase tracking-widest text-[10px] block">Select Service</label>
           <div className="relative">
             <select 
+              id="service-select"
               value={formData.service}
               onChange={(e) => setFormData({...formData, service: e.target.value})}
               className="w-full p-4 bg-gray-50 rounded-2xl mb-6 outline-none border border-transparent focus:border-[#f472b6] transition appearance-none cursor-pointer"
@@ -59,8 +69,9 @@ const Booking = () => {
             <div className="absolute right-4 top-5 pointer-events-none text-gray-400">▼</div>
           </div>
 
-          <h2 className="text-[#be185d] font-bold mb-2 uppercase tracking-widest text-[10px]">Your Message</h2>
+          <label htmlFor="user-message" className="text-[#be185d] font-bold mb-2 uppercase tracking-widest text-[10px] block">Your Message</label>
           <textarea 
+            id="user-message"
             placeholder="Tell us about your event..." 
             value={formData.message}
             onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -84,7 +95,7 @@ const Booking = () => {
 
         {/* Right Side: Contact Info Section */}
         <div className="md:w-2/5 bg-[#db2777] p-12 text-white flex flex-col justify-center">
-          <h1 className="text-4xl font-black mb-6 leading-tight">Let's Create Magic!</h1>
+          <h1 className="text-4xl font-black mb-6 leading-tight">Enquiry & Booking for Rama's Events</h1>
           <p className="opacity-90 mb-12 leading-relaxed font-medium">
             Rama's Events is here to make your celebrations unforgettable. Reach out to us directly for quick bookings.
           </p>

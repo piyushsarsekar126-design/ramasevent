@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const services = [
-  { title: "Expert Corporate Event Planning in Pune", desc: "From high-profile conferences and product launches to engaging team-building retreats, we provide end-to-end corporate event management.", img: "/corporate-event.jpg" },
-  { title: "Beautiful Wedding planning", desc: "Creative wedding planning from engagement to reception, including decor and guest management in Pune.", img: "/wedding.jpeg" },
-  { title: "Creative Birthday Party Organizers", desc: "Celebrate milestones with style! We specialize in personalized birthday decorations and unique theme setups.", img: "/birthday.jpg" },
-  { title: "Destination & Luxury Wedding Planner", desc: "Turn your dream wedding into reality with our elegant mandap decor and grand reception management.", img: "/stage descoration.jpg" },
-  { title: "Family Reunion & Celebration Experts", desc: "Specializing in cozy and elegant setups for anniversaries, naming ceremonies, or grand family reunions.", img: "/kids party.jpg" },
-  { title: "Private Event Planning in Pune", desc: "Bespoke event planning for house parties and traditional poojas, ensuring every family milestone is unforgettable.", img: "/luxary images.jpg" }
+  { title: "Expert Corporate Event Planning in Pune", desc: "From high-profile conferences and product launches to engaging team-building retreats, we provide end-to-end corporate event management.", img: "/corporate-event.jpg", link: "/services" },
+  { title: "Beautiful Wedding planning", desc: "Creative wedding planning from engagement to reception, including decor and guest management in Pune.", img: "/wedding.jpeg", link: "/wedding-planner-pune" },
+  { title: "Creative Birthday Party Organizers", desc: "Celebrate milestones with style! We specialize in personalized birthday decorations and unique theme setups.", img: "/birthday.jpg", link: "/birthday-party-decoration-pune" },
+  { title: "Destination & Luxury Wedding Planner", desc: "Turn your dream wedding into reality with our elegant mandap decor and grand reception management.", img: "/stage descoration.jpg", link: "/wedding-planner-pune" },
+  { title: "Family Reunion & Celebration Experts", desc: "Specializing in cozy and elegant setups for anniversaries, naming ceremonies, or grand family reunions.", img: "/kids party.jpg", link: "/anniversary-decoration-pune" },
+  { title: "Private Event Planning in Pune", desc: "Bespoke event planning for house parties and traditional poojas, ensuring every family milestone is unforgettable.", img: "/luxary images.jpg", link: "/services" }
 ];
 
 const themeData = [
@@ -21,9 +22,10 @@ const themeData = [
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
+  const navigate = useNavigate();
 
   const handleBookNow = (title) => {
-    const phoneNumber = "7028413027"; 
+    const phoneNumber = "917028413027"; 
     const message = `Hello Rama's Events, I am interested in booking: ${title}`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
@@ -33,6 +35,10 @@ const Services = () => {
     <section className="py-20 px-6 bg-[#fdf2f8] overflow-x-hidden relative">
       
       {/* SERVICE CARDS SECTION */}
+      <div className="max-w-7xl mx-auto mb-12">
+        <h2 className="text-3xl md:text-5xl font-black text-[#db2777] text-center mb-4 uppercase tracking-tighter">Our Expert Event Services</h2>
+        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Professional event planning and decoration tailored to your special moments in Pune.</p>
+      </div>
       <div className="grid md:grid-cols-3 gap-8 mb-24 max-w-7xl mx-auto">
         {services.map((s, i) => (
           <motion.div 
@@ -43,15 +49,22 @@ const Services = () => {
             transition={{ duration: 0.5, delay: i * 0.1 }}
             className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col group"
           >
-            <div className="overflow-hidden h-56 cursor-pointer" onClick={() => setSelectedService(s)}>
-                <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div className="overflow-hidden h-56 cursor-pointer" onClick={() => navigate(s.link)}>
+                <img 
+                  src={s.img} 
+                  alt={`${s.title} - Rama's Events Pune`} 
+                  width="400"
+                  height="300"
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                />
             </div>
             <div className="p-7 flex flex-col flex-1">
               <h2 className="text-xl font-bold text-pink-800 mb-3 group-hover:text-purple-700 transition-colors">{s.title}</h2>
               <p className="text-black-600 font-bold text-[14px] mb-8 flex-1 leading-relaxed line-clamp-2">{s.desc}</p>
               <div className="flex gap-3">
                 <button 
-                  onClick={() => setSelectedService(s)}
+                  onClick={() => navigate(s.link)}
                   className="flex-1 border-2 border-orange-700 text-purple-700 py-2.5 rounded-full text-[10px] font-bold hover:bg-black-50 transition uppercase tracking-tighter"
                 >
                   VIEW DETAILS
@@ -69,6 +82,10 @@ const Services = () => {
       </div>
 
       {/* THEME CARDS SECTION */}
+      <div className="max-w-7xl mx-auto mb-12">
+        <h2 className="text-3xl md:text-5xl font-black text-[#db2777] text-center mb-4 uppercase tracking-tighter">Trending Event Themes</h2>
+        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Explore our most loved decoration themes for birthdays and family celebrations.</p>
+      </div>
       <div className="grid md:grid-cols-2 gap-10 max-w-7xl mx-auto">
         {themeData.map((theme, index) => (
           <motion.div 
@@ -98,10 +115,13 @@ const Services = () => {
               </ul>
             </div>
             
-            <div 
+            <button 
               onClick={() => handleBookNow(theme.title)}
-              className={`mt-10 h-6 rounded-full cursor-pointer hover:opacity-80 transition-opacity ${theme.pillWidth} ${theme.pillColor}`}
-            ></div>
+              className={`mt-10 py-3 px-8 rounded-full cursor-pointer hover:scale-105 transition-all duration-300 font-bold text-[12px] tracking-widest flex items-center justify-center gap-2 shadow-lg ${theme.pillColor} border border-white/20`}
+              aria-label={`Book ${theme.title} service`}
+            >
+              BOOK NOW
+            </button>
           </motion.div>
         ))}
       </div>
@@ -129,6 +149,7 @@ const Services = () => {
               <button 
                 onClick={() => setSelectedService(null)}
                 className="absolute top-4 right-4 bg-black/20 hover:bg-black/40 text-white w-10 h-10 rounded-full flex items-center justify-center z-20 transition-colors"
+                aria-label="Close modal"
               >
                 ✕
               </button>

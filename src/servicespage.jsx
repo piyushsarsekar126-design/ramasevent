@@ -1,20 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const ServicesPage = () => {
+  useEffect(() => {
+    document.title = "Our Services | Rama's Events - Event Decoration in Pune";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', "Explore our wide range of event services in Pune, including weddings, birthdays, corporate events, and private celebrations with premium decorations.");
+    }
+  }, []);
   // Saare cards yahan add kar diye hain
   const serviceList = [
     {
       title: "Wedding & Engagement Planning and Decoration",
       desc: "Professional wedding and engagement planning and decoration services in Pune with elegant décor and seamless coordination.",
       badge: "Premium",
-      link: "/service/wedding"
+      link: "/wedding-planner-pune"
     },
     {
       title: "Baby Shower Decoration in Pune",
       desc: "Beautiful baby shower decoration in Pune with pastel themes, customized setups, and complete event styling.",
-      link: "/service/baby-shower"
+      link: "/baby-shower-decoration-pune"
     },
     {
       title: "Reception Decoration in Pune",
@@ -24,7 +31,7 @@ const ServicesPage = () => {
     {
       title: "Birthday Party Planning and Decoration",
       desc: "Creative birthday party planning and decoration in Pune for kids and adults with theme-based décor.",
-      link: "/service/birthday"
+      link: "/birthday-party-decoration-pune"
     },
     {
       title: "Naming Ceremony Decoration in Pune",
@@ -44,7 +51,7 @@ const ServicesPage = () => {
     {
       title: "Haldi & Mehendi Decoration in Pune",
       desc: "Colourful haldi and mehendi decoration in Pune with traditional, floral, and vibrant décor themes.",
-      link: "/service/haldi-mehendi"
+      link: "/haldi-mehendi-decoration-pune"
     },
     {
       title: "Surprise Decoration in Pune",
@@ -100,9 +107,9 @@ const ServicesPage = () => {
               )}
 
               <div>
-                <h3 className="text-[pink] text-2xl font-black mb-5 leading-tight transition-colors group-hover:text-[#db2777]">
+                <h2 className="text-[pink] text-2xl font-black mb-5 leading-tight transition-colors group-hover:text-[#db2777]">
                   {service.title}
-                </h3>
+                </h2>
                 <p className="text-black-400 text-[15px] leading-relaxed mb-8 font-medium">
                   {service.desc}
                 </p>

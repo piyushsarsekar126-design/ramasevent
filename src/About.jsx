@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const About = () => {
+  useEffect(() => {
+    document.title = "About Us | Rama's Events - Professional Event Planner in Pune";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', "Learn more about Rama's Events, your trusted partner for creative event planning and luxury decorations in Pune.");
+    }
+  }, []);
   const features = [
     { 
       title: "Crafted With Imagination", 
@@ -67,7 +75,7 @@ const About = () => {
           <div className="absolute inset-0 bg-[#4d1a4d]/40"></div>
           <div className="relative z-10 max-w-3xl">
             <h1 className="text-yellow-400 text-4xl md:text-6xl font-black mb-6 uppercase italic tracking-tighter drop-shadow-lg">
-              Themes Designed to Spark Joy
+              About Rama's Events & Management
             </h1>
             <p className="text-white text-xl font-medium opacity-90">
               Luxury themes that redefine celebration — we create atmospheres your guests will never forget.
@@ -92,7 +100,7 @@ const About = () => {
             className="bg-white rounded-[35px] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-50 flex flex-col items-start text-left group transition-all duration-300 cursor-pointer"
           >
             <div className="text-4xl mb-6 transform group-hover:scale-110 transition-transform">{item.icon}</div>
-            <h3 className="text-[#be185d] group-hover:text-white text-2xl font-black mb-4 transition-colors">{item.title}</h3>
+            <h2 className="text-[#be185d] group-hover:text-white text-2xl font-black mb-4 transition-colors">{item.title}</h2>
             <p className="text-gray-600 group-hover:text-white/90 text-sm leading-relaxed transition-colors">{item.desc}</p>
           </motion.div>
         ))}
@@ -101,7 +109,7 @@ const About = () => {
       {/* 4. NEW SECTION: "Why families trust Ramas Events" (Exact Match to Screenshot) */}
       <section className="relative mt-20">
         {/* Wavy SVG Divider */}
-        <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] transform rotate-180">
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] transform rotate-180" aria-hidden="true">
           <svg className="relative block w-[calc(100%+1.3px)] h-[80px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#ffffff"></path>
           </svg>
@@ -140,11 +148,14 @@ const About = () => {
               ))}
             </div>
 
-            {/* Bottom Button */}
             <motion.div className="mt-16">
-              <button className="bg-[#be185d]/30 hover:bg-[#be185d]/50 text-white border border-white/20 px-8 py-4 rounded-full font-bold transition-all backdrop-blur-md">
-                <u>Let's plan something beautiful</u>
-              </button>
+              <Link 
+                to='/contact-us'
+                className="bg-[#be185d]/30 hover:bg-[#be185d]/50 text-white border border-white/20 px-8 py-4 rounded-full font-bold transition-all backdrop-blur-md inline-block"
+                aria-label="Contact us to plan your event"
+              >
+                Let's plan something beautiful
+              </Link>
             </motion.div>
           </div>
         </div>

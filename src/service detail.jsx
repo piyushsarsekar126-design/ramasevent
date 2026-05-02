@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 // Data ko alag file mein rakhna best hai, par yahan main define kar raha hoon
@@ -16,13 +16,37 @@ const ServiceDetail = () => {
   const navigate = useNavigate();
   const service = servicesData[id];
 
-  if (!service) return <div className="py-20 text-center">Service Not Found!</div>;
+  useEffect(() => {
+    if (service) {
+      const canonical = `https://ramasevents.in/service/${id}`;
+      document.title = `${service.title} | Rama's Events Pune`;
+      
+      let metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', `${service.desc} Best ${service.title} services in Pune by Rama's Events.`);
+      }
+
+      let canonicalTag = document.querySelector('link[rel="canonical"]');
+      if (canonicalTag) {
+        canonicalTag.setAttribute('href', canonical);
+      }
+    }
+    window.scrollTo(0, 0);
+  }, [id, service]);
+
+  if (!service) return <div className="py-20 text-center text-[#db2777] font-bold">Service Not Found!</div>;
 
   return (
     <div className="min-h-screen bg-[#fdf2f8] py-20 px-6">
       <div className="max-w-5xl mx-auto bg-white rounded-[40px] shadow-2xl overflow-hidden md:flex">
         <div className="md:w-1/2 h-96 md:h-auto">
-          <img src={service.img} alt={service.title} className="w-full h-full object-cover" />
+          <img 
+            src={service.img} 
+            alt={`${service.title} - Rama's Events Pune`} 
+            width="800"
+            height="600"
+            className="w-full h-full object-cover" 
+          />
         </div>
         <div className="md:w-1/2 p-10 md:p-16 flex flex-col justify-center">
           <h1 className="text-4xl font-black text-[#db2777] mb-6 leading-tight">{service.title}</h1>

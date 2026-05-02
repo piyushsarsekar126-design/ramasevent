@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa'; // Icons import kiye
 
 const Contact = () => {
+  useEffect(() => {
+    document.title = "Contact Us | Rama's Events - Event Planner in Pune";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', "Contact Rama's Events in Pune for expert event planning, luxury decorations, and professional coordination for your special day.");
+    }
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* 1. Hero Section with Pink Overlay */}
@@ -18,8 +25,8 @@ const Contact = () => {
           <div className="absolute inset-0 bg-[#be185d]/40 backdrop-blur-[2px]"></div>
 
           <div className="relative z-10 max-w-3xl">
-            <h1 className="text-yellow-400 text-4xl md:text-6xl font-black mb-4 uppercase italic tracking-tighter">``
-              Contact Us
+            <h1 className="text-yellow-400 text-4xl md:text-6xl font-black mb-4 uppercase italic tracking-tighter">
+              Get in Touch with Rama's Events
             </h1>
             <p className="text-white text-xl font-medium opacity-90">
               Let's create your dream event together. Reach out to us today!
@@ -36,7 +43,7 @@ const Contact = () => {
           <div className="text-[#be185d] text-5xl mb-4">
             <FaEnvelope />
           </div>
-          <h3 className="text-2xl font-black text-[#be185d] mb-2">Email Address</h3>
+          <h2 className="text-2xl font-black text-[#be185d] mb-2">Email Address</h2>
           <p className="text-gray-600 font-medium text-lg">jadhavrameshwar1012@gmail.com</p>
         </motion.div>
 
@@ -45,7 +52,7 @@ const Contact = () => {
           <div className="text-[#be185d] text-5xl mb-4">
             <FaMapMarkerAlt /> 
           </div>
-          <h3 className="text-2xl font-black text-[#be185d] mb-2">Address</h3>
+          <h2 className="text-2xl font-black text-[#be185d] mb-2">Address</h2>
           <p className="text-gray-600 font-medium leading-relaxed">
             Nadi Patra, Sai Solution Pvt Ltd, Office No 1,<br />
             1st Floor, Building Name Ramlila, Pune 411004
@@ -57,7 +64,7 @@ const Contact = () => {
           <div className="text-[#be185d] text-5xl mb-4">
             <FaPhoneAlt />
           </div>
-          <h3 className="text-2xl font-black text-[#be185d] mb-2">Telephone</h3>
+          <h2 className="text-2xl font-black text-[#be185d] mb-2">Telephone</h2>
           <p className="text-gray-600 font-medium text-lg">+91 7028413027</p>
         </motion.div>
       </div>
